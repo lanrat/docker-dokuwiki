@@ -10,7 +10,7 @@ RUN cd /var/www && curl http://download.dokuwiki.org/src/dokuwiki/dokuwiki-stabl
 RUN chown -R www-data:www-data /var/www
 
 RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php5/fpm/php.ini
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 RUN rm /etc/nginx/sites-enabled/*
 ADD dokuwiki.conf /etc/nginx/sites-enabled/
 
