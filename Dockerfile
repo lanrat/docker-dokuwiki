@@ -1,8 +1,10 @@
-FROM ubuntu:14.04
+FROM ubuntu:latest
 MAINTAINER Ilya Stepanov <dev@ilyastepanov.com>
 
 RUN apt-get update && \
-    apt-get install -y nginx php5-fpm php5-gd curl && \
+    DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y nginx php5-fpm php5-gd curl && \
+    apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /var/www
