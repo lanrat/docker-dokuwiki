@@ -2,7 +2,6 @@ FROM ubuntu:latest
 MAINTAINER Ian Foster <ian@vorsk.com>
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y nginx php5-fpm php5-gd curl && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -22,7 +21,5 @@ VOLUME [ \
     "/var/www/lib/tpl", \
     "/var/www/lib/plugins" \
 ]
-
-USER www-data
 
 CMD /usr/sbin/php5-fpm && /usr/sbin/nginx
