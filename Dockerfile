@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-MAINTAINER Ilya Stepanov <dev@ilyastepanov.com>
+MAINTAINER Ian Foster <ian@vorsk.com>
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \
@@ -22,5 +22,7 @@ VOLUME [ \
     "/var/www/lib/tpl", \
     "/var/www/lib/plugins" \
 ]
+
+USER www-data
 
 CMD /usr/sbin/php5-fpm && /usr/sbin/nginx
