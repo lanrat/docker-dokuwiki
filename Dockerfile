@@ -18,6 +18,7 @@ ADD dokuwiki.conf /etc/nginx/sites-enabled/
 EXPOSE 80
 VOLUME [ \
     "/var/www/data/", \
+    "/var/www/conf/", \
     "/var/www/lib/tpl", \
     "/var/www/lib/plugins" \
 ]
